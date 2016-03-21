@@ -68,3 +68,9 @@ ul {
   flex-shrink: 0;
 }
 
+.account, .about {
+  flex-grow: 1;
+  font-size: 30px;
+  color: #00bcd4;
+  text-align: center;
+}
