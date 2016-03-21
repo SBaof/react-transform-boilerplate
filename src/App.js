@@ -1,13 +1,16 @@
-class Point
-{
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
+import React, { Component } from 'react';
+import Home from './Home';
 
-  toString() {
-    return '(' + this.x + ',' + this.y + ')';
+class App extends Component {
+  render() {
+    return (
+      <div className="app-wrap">
+        <div className="app-header"></div>
+        <Home />
+        <div className="app-footer">This is Footer</div>
+      </div>
+    );
   }
 }
 
-export default Point;
+export default App;

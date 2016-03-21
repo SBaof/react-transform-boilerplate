@@ -1,5 +1,7 @@
-import Point from './App';
+import React from 'react';
+import { render } from 'react-dom';
 
-var pnt = new Point(2, 3);
+import App from './App';
+import './style/main.scss';
 
-console.log(pnt.toString());
+render(<App />, document.getElementById('root'))
