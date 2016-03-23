@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import FlatButton from 'material-ui/lib/flat-button';
+import RaisedButton from 'material-ui/lib/raised-button';
+import DatePicker from 'material-ui/lib/date-picker/date-picker';
 import TextField from 'material-ui/lib/text-field';
 import Card from 'material-ui/lib/card/card';
 import axios from 'axios';
 import isEmpty from 'lodash/isEmpty';
 import UserInfo from './user/UserInfo';
+import github from './utils/github';
+import Repos from './user/Repos';
 
 class Account extends Component {
   constructor(props) {
@@ -18,14 +22,13 @@ class Account extends Component {
     e.preventDefault();
     const account = this.refs.account.getValue();
     console.log(account);
-    axios.get(`https://api.github.com/users/${account}`)
-         .then((res) => {
-           this.setState({user: res.data})
-           console.log(res);
-         })
-         .catch((res) => {
-           console.log(res);
-         });
+    github.getGithubInfo(account)
+      .then((data) => {
+        this.setState({
+          user: data.user,
+          repos: data.repos
+        });
+    });
   }
 
   render() {
@@ -33,12 +36,25 @@ class Account extends Component {
 
     if(!isEmpty(this.state.user)) {
       GitHubInfo = (
-        <UserInfo userInfo={this.state.user} />
+        <div>
+          <UserInfo userInfo={this.state.user} />
+          <Repos repos={this.state.repos} />
+          <RaisedButton
+            style={{display: 'block', margin: '0 auto', width: '180px'}}
+            primary={true}
+            label='save' />
+        </div>
       );
     }
+
     return (
       <div className="account">
         <Card className='content'>
+          <DatePicker
+            style={{fontSize: '14px'}}
+            ref='birthday'
+            hintText='Birthday'
+            autoOk={false} />
           <form onSubmit={this._handleSubmit.bind(this)}>
             <TextField hintText='Your GitHub Account'
                        ref='account'/>
@@ -46,8 +62,8 @@ class Account extends Component {
                         type='submit'
                         primary={true} />
           </form>
+          { GitHubInfo }
         </Card>
-        { GitHubInfo }
       </div>
     );
   }
