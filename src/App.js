@@ -35,9 +35,11 @@ class App extends Component {
       this.context.router.isActive('/about') ? 'About' : 'Home';
 
     return (
-      <AppBar title={title}
-              onLeftIconButtonTouchTap = {this._onLeftIconButtonTouchTap.bind(this)}
-      />
+      <div className="app-header">
+        <AppBar title={title}
+                onLeftIconButtonTouchTap = {this._onLeftIconButtonTouchTap.bind(this)}
+        />
+      </div>
     );
   }
 
