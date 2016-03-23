@@ -11,7 +11,7 @@ class Repos extends Component {
       return (
         <li key={repo.id}>
           <div>
-            <p className='name'>{repo.name}</p>
+            <a href={repo.clone_url} className='name'>{repo.name}</a>
             <p className='lang'>{repo.language}</p>
           </div>
           <p className='desc'>{repo.description}</p>
