@@ -34,6 +34,7 @@
   "homepage": "https://github.com/gaearon/react-transform-boilerplate",
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
+    "axios": "^0.9.1",
     "babel-core": "^6.6.5",
     "babel-eslint": "^5.0.0-beta4",
     "babel-loader": "^6.2.4",
@@ -48,6 +49,7 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "file-loader": "^0.8.5",
+    "lodash": "^4.6.1",
     "material-ui": "^0.15.0-alpha.2",
     "node-sass": "^3.4.2",
     "react-router": "^2.0.1",
