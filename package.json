@@ -49,7 +49,7 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "file-loader": "^0.8.5",
-    "lodash": "^4.6.1",
+    "lodash": "^4.7.0",
     "material-ui": "^0.14.4",
     "node-sass": "^3.4.2",
     "react-router": "^2.0.1",

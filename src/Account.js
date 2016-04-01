@@ -10,6 +10,8 @@ import UserInfo from './user/UserInfo';
 import github from './utils/github';
 import Repos from './user/Repos';
 
+import esp from './utils/esp';
+
 class Account extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,11 @@ class Account extends Component {
   _handleSubmit(e) {
     e.preventDefault();
     const account = this.refs.account.getValue();
-    console.log(account);
+//    console.log(account);
+    console.log(github);
+    console.log(esp.getMsg());
+    console.log(1);
+
     github.getGithubInfo(account)
       .then((data) => {
         this.setState({
